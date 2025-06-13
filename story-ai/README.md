@@ -1,2 +1,11 @@
 # story-ai
-학습 시키고 있는 스토리 부분 AI 모델 용량이 8~16기가 사이, 스토리 생성 시 그래픽 카드 장착된 노트북이 필요한데 혹시 다들 괜찮으신가요?
+
+LoRA Fine-Tuning with LLaMA 3 Korean Bllossom-8B
+
+주요 기능
+HuggingFace transformers + datasets + Trainer 기반 학습
+JSONL 형식 학습 데이터 사용
+학습 후 모델 및 토크나이저 저장
+
+현재 모델 학습 중이라 학습 완료되면 모델 업로드까지 완료하겠습니다.
+
