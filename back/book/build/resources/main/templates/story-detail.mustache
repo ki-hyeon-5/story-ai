@@ -1,0 +1,27 @@
+{{>layouts/header}}
+
+<div class="main">
+    <div class="chat-area">
+        {{#slices}}
+            <div class="chat-box">
+                <strong>✍️ 프롬프트:</strong> {{prompt}}<br>
+                <strong>📘 AI 응답:</strong> {{sliceContent}}<br>
+                {{#imageUrl}}
+                    <img src="{{imageUrl}}" alt="AI 이미지" style="max-width: 100%; margin-top: 10px;">
+                {{/imageUrl}}
+            </div>
+        {{/slices}}
+
+        {{^slices}}
+            <div class="text-muted">아직 입력된 내용이 없습니다.</div>
+        {{/slices}}
+    </div>
+
+    <!-- ✅ 이어쓰기: 해당 storyId를 GET 파라미터로 전송 -->
+    <form class="input-area" method="post" action="/api/story?storyId={{storyId}}">
+    <input type="text" name="prompt" placeholder="내용을 입력하세요" required>
+    <button type="submit">작성</button>
+    </form>
+</div>
+
+{{>layouts/footer}}

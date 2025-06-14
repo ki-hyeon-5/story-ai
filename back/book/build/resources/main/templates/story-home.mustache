@@ -1,0 +1,15 @@
+{{>layouts/header}}
+
+<div class="main">
+    <div class="chat-area">
+        <p class="text-muted">💬 새 동화를 만들어보세요! 프롬프트를 입력하면 책이 생성됩니다.</p>
+    </div>
+
+    <!-- ✅ 새 책을 만드는 입력창 -->
+    <form class="input-area" method="post" action="/api/story">
+        <input type="text" name="prompt" placeholder="프롬프트를 입력하세요" required>
+        <button type="submit">작성</button>
+    </form>
+</div>
+
+{{>layouts/footer}}
