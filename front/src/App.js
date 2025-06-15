@@ -14,9 +14,9 @@ function App() {
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  const [error, setError] = useState(null); // 에러 상태 추가
   const [stories, setStories] = useState([]); // 생성된 동화 목록을 저장할 상태
   const [editingStoryId, setEditingStoryId] = useState(null); // 수정 중인 동화의 ID
-  const [error, setError] = useState(null); // 에러 상태 추가
 
   /*
   const [stories, setStories] = useState([
@@ -40,7 +40,8 @@ function App() {
     }
   ]);
   const [editingStoryId, setEditingStoryId] = useState(null);
-*/
+  */
+
   const showCustomAlert = (message) => {
     setAlertMessage(message);
     setShowAlert(true);
@@ -172,6 +173,18 @@ function App() {
     }
   };
 
+  // 동화 내용 보기 함수 추가
+  const handleViewStory = (storyId) => {
+    const story = stories.find(s => s.id === storyId);
+    if (story) {
+      setMessages([
+        { type: 'user', content: story.title },
+        { type: 'assistant', content: story.content }
+      ]);
+      setCurrentView('chat');
+    }
+  };
+
   // 동화 삭제 함수
   const handleDeleteStory = (storyId) => {
     setStories((prevStories) => prevStories.filter(story => story.id !== storyId));
@@ -215,19 +228,25 @@ function App() {
                 </div>
               ) : (
                 stories.map((story) => (
-                  <div key={story.id} className="history-item">
+                  <div key={story.id} className="history-item" onClick={() => handleViewStory(story.id)}>
                     <span className="history-title">{story.title}</span>
                     <span className="history-date">{story.date}</span>
                     <div className="action-buttons">
                       <button 
                         className="action-button edit"
-                        onClick={() => handleEditStory(story.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleEditStory(story.id);
+                        }}
                       >
                         <img src={PencilIcon} alt="수정" />
                       </button>
                       <button 
                         className="action-button delete"
-                        onClick={() => handleDeleteStory(story.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDeleteStory(story.id);
+                        }}
                       >
                         <img src={TrashIcon} alt="삭제" />
                       </button>
