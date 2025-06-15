@@ -1,6 +1,6 @@
 # StoryBook UI/UX
 
-필수 Node.js 설치,
+필수 항목: Node.js 설치(React 실행 시 필요)
 
 ### 1. 프론트엔드 (React)
 
