@@ -1,0 +1,106 @@
+/* .login-form div rule is removed as it was too broad */
+
+.login-form form {
+  max-width: 100%;
+  width: 80%;
+}
+
+.input-group {
+  position: relative;
+  width: 100%; /* Ensure input-group takes full width of the container */
+}
+
+.form-input {
+  width: 100%;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 13px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  /* Corrected transition */
+  height: 60px;
+  background-color: transparent;
+  outline: none;
+  box-sizing: border-box; /* Restored */
+}
+
+.form-input:focus {
+  border-color: #3B88C3; /* blue border on focus */
+  border-width: 2px;
+}
+
+.floating-label {
+  position: absolute;
+  left: 10px;
+  top: 18px;
+  color: #aaa;
+  font-size: 13px;
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+  padding: 0.5px;
+}
+
+.form-input:focus + .floating-label,
+.form-input.has-content + .floating-label {
+  top: 0px;
+  font-size: 10px;
+  color: #aaa;
+}
+
+.login-form {
+  max-width: 100%; /* Restored */
+  margin: 0 auto;
+  display: flex; /* Restored */
+  justify-content: center; /* Restored */
+  align-items: center; /* Restored */
+}
+
+.login-form button {
+  width: 80%;
+  padding: 12px;
+  margin: 30px auto;
+  background-color: #adb5be;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  height: 50px;
+  /* align-items: center; This property is for flex containers, not items */
+}
+
+.login-form button:hover {
+  background-color: #3B88C3;
+}
+
+/* --- Styles for vertically merged inputs --- */
+
+.merged-input-container {
+    display: block;
+    margin-bottom: 5px; /* Space between inputs and button */
+}
+
+.merged-input-container .input-group {
+  margin-bottom: 0;
+}
+
+.merged-input-container .input-group:first-child .form-input {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  /* border-bottom: none; */
+}
+
+.merged-input-container .input-group:last-child .form-input {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: left;
+}
