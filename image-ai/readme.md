@@ -22,6 +22,7 @@ story-ai Readme.md 참조
 ```bash
 LM Stdio 실행 필수 - `localhost:1234` 에서 실행 중이어야 함
 ComfyUI 서버 실행 - `localhost:8188`에서 서버가 실행 중이어야 함 
+```
 
 ### FASTAPI 실행
 ```bash
