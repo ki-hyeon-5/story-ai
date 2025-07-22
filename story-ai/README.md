@@ -5,7 +5,7 @@
 
 ### 2. 학습 모델 다운로드 
 ```bash
-(https://drive.google.com/drive/folders/1STQQhwCMUKBIPbEw70MkmUitgCHTrjWC)
+https://drive.google.com/drive/folders/1STQQhwCMUKBIPbEw70MkmUitgCHTrjWC
 ```
 ### 3. 모델 붙여넣기 경로
 ```bash
