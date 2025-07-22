@@ -18,6 +18,11 @@ image_dir = "comfyui/output" comfyui 폴더 경로 설정 (output 경로)
 story-ai Readme.md 참조
 ```
 
+### 필수 사항
+```bash
+LM Stdio 실행 필수 - `localhost:1234` 에서 실행 중이어야 함
+ComfyUI 서버 실행 - `localhost:8188`에서 서버가 실행 중이어야 함 
+
 ### FASTAPI 실행
 ```bash
 uvicorn main:app --reload
