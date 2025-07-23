@@ -9,7 +9,7 @@ https://drive.google.com/drive/folders/1STQQhwCMUKBIPbEw70MkmUitgCHTrjWC
 ```
 ### 3. 모델 붙여넣기 경로
 ```bash
-C:\Users\USER\.lmstudio\models\story_llama\
+C:\Users\USER\.lmstudio\models\story_llama\story_llama\
    ── merged-bllossom-8B.q8_0.gguf
 ```
 
