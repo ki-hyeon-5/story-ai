@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'BMEuljiro10yearslater';
+    src: url('../features/assets/fonts/BMEuljiro10yearslater.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+/* Entry.js 전용 CSS - CRA 기본 화면 스타일 기반 */
+.App {
+  text-align: center;
+  background: #fffbe9;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  border-radius: 10%;
+}
+
+.App-header {
+  background-color: #fffbe9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  font-family: 'BMEuljiro10yearslater', sans-serif;
+}
+
+.content-box {
+  background: #4a6984; /* Slate Blue */
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-header p {
+    font-family: 'BMEuljiro10yearslater', sans-serif;
+  }
+
+
+.App-link {
+  color: #FFFFFF; /* White */
+  font-size: 2.0rem;
+  margin-top: 2rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.App-link:hover {
+  color: #DDDDDD; /* Light Gray */
+  text-decoration: underline;
+} 
