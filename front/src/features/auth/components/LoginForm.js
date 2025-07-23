@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import '../../../../src/styles/LoginForm.css';
+import { useNavigate } from 'react-router-dom'; //
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate(); //
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // 예: 아이디/비밀번호가 'test'/'test'면 무조건 통과
+    if (username === 'admin' && password === 'admin') {
+      navigate('/Homepage'); // 원하는 경로로 이동
+      return;
+    }
+
     if (username.trim() === '') {
       setErrorMessage('아이디를 입력하세요.');
     } else if (password.trim() === '') {
@@ -20,7 +29,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="login-form">
+    <div className="login-form" style={{ marginTop: '50px' }}>
       <h2></h2>
       <form onSubmit={handleSubmit}>
         <div className="merged-input-container">
@@ -48,7 +57,18 @@ function LoginForm() {
           </div>
         </div>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <button type="submit">로그인</button>
+        <div className="login-btn-row">
+          <button type="submit" className="login-btn">로그인</button>
+          <button
+            type="button"
+            className="find-btn"
+            onClick={() => {
+              alert('아이디/비밀번호 찾기 기능은 준비 중입니다.');
+            }}
+          >
+            아이디/비밀번호 찾기
+          </button>
+        </div>
       </form>
     </div>
   );

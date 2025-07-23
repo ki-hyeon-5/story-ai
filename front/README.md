@@ -4,8 +4,10 @@
 
 ### 1. 프론트엔드 (React)
 
-*   **설치:** 프로젝트 루트에서 'npm install'
-*   **실행:** `npm run start' -> `http://localhost:3000`에서 실행
+*   **설치:** 프로젝트 루트에서 `npm install`
+*   **실행:** `npm run start` → `http://localhost:3000`에서 실행
+*   **진입:** `Enter the Book Create` Click
+*   → ID/PW 임의로 지정`(admin/admin)`
 
 ### 2. 백엔드 (FastAPI)
 

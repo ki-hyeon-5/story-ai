@@ -7,6 +7,7 @@ import ProfileMenu from '../components/ProfileMenu';
 import Chat from '../components/Chat';
 import Prompt from '../components/Prompt';
 import Alert from '../components/Alert';
+import { generateContent } from '../features/api/storyAPI';
 
 
 function App() {
@@ -43,32 +44,8 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:8000/generate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          prompt: storyContent,
-          type: currentView === 'image' ? 'image' : 'story'
-        })
-      });
-      if (!response.ok) {
-        const errorData = await response.text();
-        let errorMessage;
-        try {
-          const errorJson = JSON.parse(errorData);
-          errorMessage = errorJson.detail || errorData;
-        } catch {
-          errorMessage = errorData;
-        }
-        const fullErrorMessage = `서버 오류 (${response.status}): ${errorMessage}`;
-        showCustomAlert(fullErrorMessage);
-        setError(fullErrorMessage);
-        throw new Error(fullErrorMessage);
-      }
-      const data = await response.json();
+      // 기존 fetch 대신 generateContent 사용
+      const data = await generateContent(storyContent, currentView === 'image' ? 'image' : 'story');
       if (!data.story && !data.imageUrl) {
         throw new Error('서버에서 예상치 못한 응답을 받았습니다.');
       }
@@ -172,7 +149,7 @@ function App() {
       <button className="toggle-button" onClick={toggleSidebar}>
         <img src={Book} alt="Toggle Sidebar" className="toggle-icon"/>
       </button>
-      <div className="main">
+      <div className="chat-page">
         <ProfileMenu
           isProfileOpen={isProfileOpen}
           toggleProfile={toggleProfile}
@@ -181,7 +158,7 @@ function App() {
                 navigate={navigate}
         />
         
-        <div className="content">
+        <div className="chat-container">
           {currentView === 'chat' ? (
             <Chat messages={messages} isLoading={isLoading} currentView={currentView} />
           ) : (
