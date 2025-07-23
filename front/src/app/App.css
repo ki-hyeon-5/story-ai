@@ -329,6 +329,7 @@
   margin: 0 auto;
   border-radius: 10px;
   box-sizing: border-box;
+  position: sticky; bottom: 40px; /* 추가 */
 }
 
 .prompt textarea {
@@ -457,6 +458,65 @@
   }
 }
 
+.chat-page {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fffbe9;
+  transition: all 0.3s ease;
+  padding-top: 60px;
+  width: 100%;
+  min-height: 100vh;
+  margin-left: 0;
+  position: relative;
+}
+
+/* 사이드바가 열려있을 때만 메인 화면 조정 */
+.sidebar:not(.closed) ~ .chat-page {
+  margin-left: 280px;
+  width: calc(100% - 280px);
+}
+
+.chat-container {
+  flex-grow: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fffbe9;
+  font-size: 1.0rem;
+  text-align: center;
+  padding: 2rem;
+  color: #6d4c1c;
+  position: relative;
+}
+
+.chat-container h1 {
+  font-size: 3.5rem;
+  margin: 0;
+  padding: 0;
+  font-family: 'BMEuljiro10yearslater', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar:not(.closed) ~ .chat-page {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+  }
+  .chat-container h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar:not(.closed) ~ .chat-page {
+    margin-left: 0;
+    width: 100%;
+  }
+  .chat-container h1 {
+    font-size: 1.2rem;
+  }
+}
+
 .chat-container {
   flex-grow: 1;
   display: flex;
@@ -487,6 +547,7 @@
   max-width: 800px;
   margin: 0 auto;
   width: 100%;
+  justify-content: flex-end;
 }
 
 .message {
@@ -520,7 +581,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
