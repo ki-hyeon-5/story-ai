@@ -1,6 +1,10 @@
 /* .login-form div rule is removed as it was too broad */
 
 .login-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   max-width: 100%;
   width: 80%;
 }
@@ -51,17 +55,30 @@
 }
 
 .login-form {
+  position: relative; /* For positioning the back button */
   max-width: 100%; /* Restored */
   margin: 0 auto;
   display: flex; /* Restored */
   justify-content: center; /* Restored */
   align-items: center; /* Restored */
+  flex-grow: 1;
 }
+
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 
 .login-form button {
   width: 80%;
   padding: 12px;
-  margin: 30px auto;
+  margin: auto auto;  /* 위아래 6px, 좌우 auto */
   background-color: #adb5be;
   color: white;
   border: none;
@@ -79,8 +96,8 @@
 /* --- Styles for vertically merged inputs --- */
 
 .merged-input-container {
-    display: block;
-    margin-bottom: 5px; /* Space between inputs and button */
+  margin-bottom: 5px; /* 입력폼과 버튼 사이 간격 */
+  width: 100%;
 }
 
 .merged-input-container .input-group {
@@ -101,6 +118,50 @@
 .error-message {
   color: red;
   font-size: 12px;
-  margin-top: 10px;
+  margin-top: 6px;      /* 입력폼과 에러 메시지 사이 간격 */
+  margin-bottom: 12px;  /* 에러 메시지와 버튼 사이 간격 */
   text-align: left;
 }
+
+/* 에러 메시지가 있을 때 margin-bottom을 줄이기 위한 트릭 */
+.merged-input-container.has-error {
+  margin-bottom: 6px; /* 에러 메시지가 있을 때만 마진을 줄임 */
+}
+
+.login-btn-row {
+  display: flex;
+  gap: 8px;         /* 버튼 사이 간격 */
+  width: 100%;      /* 입력폼과 동일한 너비 */
+  margin-top: 20px;
+}
+
+.login-btn,
+.find-btn {
+  flex: 1 1 0;
+  padding: 12px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 50px;
+  /* 기존 스타일 유지 */
+}
+
+.login-btn {
+  background-color: #adb5be;
+  color: white;
+}
+
+.login-btn:hover {
+  background-color: #3B88C3;
+}
+
+.find-btn {
+  background-color: #eee;
+  color: #333;
+}
+
+.find-btn:hover {
+  background-color: #d0d0d0;
+}
+
